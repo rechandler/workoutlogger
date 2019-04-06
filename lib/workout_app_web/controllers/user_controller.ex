@@ -46,7 +46,10 @@ defmodule WorkoutAppWeb.UserController do
   def sign_in(conn, %{"email" => email, "password" => password}) do
     case Accounts.token_sign_in(email, password) do
       {:ok, token, _claims} ->
-        conn |> render("jwt.json", jwt: token)
+        conn
+        |> fetch_session
+        |> put_session(:token, token)
+        |> text "User Logged In"
       _ ->
         {:error, :unauthorized}
     end
