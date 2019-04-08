@@ -43,7 +43,8 @@ defmodule WorkoutApp.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},
-      {:guardian, "~> 1.0"}
+      {:guardian, "~> 1.0"},
+      {:distillery, "~> 1.5", runtime: false}
     ]
   end
 

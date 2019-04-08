@@ -49,7 +49,7 @@ defmodule WorkoutAppWeb.UserController do
         conn
         |> fetch_session
         |> put_session(:token, token)
-        |> text "User Logged In"
+        |> json( %{:message => "User Logged In!"})
       _ ->
         {:error, :unauthorized}
     end
